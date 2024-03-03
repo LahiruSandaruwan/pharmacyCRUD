@@ -1,118 +1,99 @@
-<h1 align="center">Pharmacy CRUD Application</h1>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p>This is a CRUD (Create, Read, Update, Delete) application built with Laravel for managing medications and customers in a pharmacy.</p>
-
-<h2>Instructions for Running Locally</h2>
-
-<h3>Prerequisites</h3>
-
-<ul>
-  <li>PHP >= 7.3</li>
-  <li>Composer</li>
-  <li>SQLite or MySQL database</li>
-  <li>Node.js and npm (optional, for front-end assets)</li>
-</ul>
-
-<h3>Setup Instructions</h3>
-
-<ol>
-  <li>Clone the repository:
-    <code>git clone https://github.com/LahiruSandaruwan/pharmacyCRUD.git</code>
-  </li>
-  <li>Navigate to the project directory:
-    <code>cd pharmacyCRUD</code>
-  </li>
-  <li>Install PHP dependencies using Composer:
-    <code>composer install</code>
-  </li>
-  <li>Create a new <code>.env</code> file based on the provided <code>.env.example</code>.</li>
-  <li>Generate an application key:
-    <code>php artisan key:generate</code>
-  </li>
-  <li>Configure the database connection in the <code>.env</code> file:
-    <pre>DB_CONNECTION=sqlite
-DB_DATABASE=/path/to/your/database.sqlite</pre>
-    Replace <code>/path/to/your/database.sqlite</code> with the path to your SQLite database file or configure the connection for MySQL or any other database supported by Laravel.
-  </li>
-  <li>Migrate the database:
-    <code>php artisan migrate</code><br>
-    If you have seeded data, you can run:
-    <code>php artisan db:seed</code>
-  </li>
-</ol>
-
-<h3>Running the Application</h3>
-
-<p>Start the development server:
-  <code>php artisan serve</code>
+<p align="center">
+<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-<p>You can now access the application at <a href="http://localhost:8000">http://localhost:8000</a>.</p>
+<h2 align="center">🚀 Pharmacy CRUD API</h2>
 
-<h2>Routes</h2>
+<p>Welcome to Pharmacy CRUD API, a Laravel-powered web application for managing medication and customer records.</p>
 
-<p>This application provides the following routes for API access:</p>
+<h2 align="center">🛠️ Used Technologies</h2>
 
 <ul>
-  <li><strong>Authentication:</strong>
-    <ul>
-      <li>POST <code>/login</code>: User authentication</li>
-      <li>POST <code>/logout</code>: User logout</li>
-    </ul>
-  </li>
-  <li><strong>Users:</strong>
-    <ul>
-      <li>GET <code>/users</code>: List all users</li>
-      <li>POST <code>/users</code>: Create a new user</li>
-      <li>GET <code>/users/{user}</code>: Retrieve a specific user</li>
-      <li>PUT <code>/users/{user}</code>: Update a user</li>
-      <li>DELETE <code>/users/{user}</code>: Delete a user</li>
-    </ul>
-    <p><strong>Sample Payload (POST /users):</strong></p>
-    <pre>{
-  "name": "John Doe",
-  "email": "john@example.com",
-  "password": "password123",
-  "role": "user"
-}</pre>
-  </li>
-  <li><strong>Medications:</strong>
-    <ul>
-      <li>GET <code>/medications</code>: List all medications</li>
-      <li>POST <code>/medications</code>: Create a new medication</li>
-      <li>GET <code>/medications/{medication}</code>: Retrieve a specific medication</li>
-      <li>PUT <code>/medications/{medication}</code>: Update a medication</li>
-      <li>DELETE <code>/medications/{medication}</code>: Delete a medication</li>
-    </ul>
-    <p><strong>Sample Payload (POST /medications):</strong></p>
-    <pre>{
-  "name": "Aspirin",
-  "description": "Pain reliever",
-  "quantity": 100
-}</pre>
-  </li>
-  <li><strong>Customers:</strong>
-    <ul>
-      <li>GET <code>/customers</code>: List all customers</li>
-      <li>POST <code>/customers</code>: Create a new customer</li>
-      <li>GET <code>/customers/{customer}</code>: Retrieve a specific customer</li>
-      <li>PUT <code>/customers/{customer}</code>: Update a customer</li>
-      <li>DELETE <code>/customers/{customer}</code>: Delete a customer</li>
-    </ul>
-    <p><strong>Sample Payload (POST /customers):</strong></p>
-    <pre>{
-  "name": "Alice Smith",
-  "email": "alice@example.com",
-  "phone_number": "123-456-7890",
-  "address": "123 Main St, City, Country"
-}</pre>
-  </li>
+  <li>Laravel Framework</li>
+  <li>PHP</li>
+  <li>SQLite</li>
+  <li>JWT Authentication</li>
 </ul>
 
-<h2>Contributing</h2>
+<h2 align="center">📋 Routes</h2>
 
-<p>Contributions are welcome! Please read the <a href="https://laravel.com/docs/contributions">contribution guide</a> for details.</p>
+<p>Check out the API routes provided by this application:</p>
 
-<h2>License</h2>
+<h3>Public Routes</h3>
+<ul>
+  <li><strong>POST</strong> /login</li>
+</ul>
 
-<p>This project is open-source and licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a>.</p>
+<h3>Protected Routes</h3>
+<ul>
+  <li><strong>POST</strong> /logout</li>
+  <li><strong>GET</strong> /users</li>
+  <li><strong>POST</strong> /users</li>
+  <li><strong>GET</strong> /users/{user}</li>
+  <li><strong>PUT</strong> /users/{user}</li>
+  <li><strong>DELETE</strong> /users/{user}</li>
+  <li><strong>GET</strong> /medications</li>
+  <li><strong>POST</strong> /medications</li>
+  <li><strong>GET</strong> /medications/{medication}</li>
+  <li><strong>PUT</strong> /medications/{medication}</li>
+  <li><strong>DELETE</strong> /medications/{medication}</li>
+  <li><strong>GET</strong> /customers</li>
+  <li><strong>POST</strong> /customers</li>
+  <li><strong>GET</strong> /customers/{customer}</li>
+  <li><strong>PUT</strong> /customers/{customer}</li>
+  <li><strong>DELETE</strong> /customers/{customer}</li>
+</ul>
+
+<h3>Sample Payloads</h3>
+<details>
+  <summary>Login Payload</summary>
+  <pre>
+    {
+      "email": "example@example.com",
+      "password": "your_password"
+    }
+  </pre>
+</details>
+
+<details>
+  <summary>User Payload</summary>
+  <pre>
+    {
+      "name": "John Doe",
+      "email": "john@example.com",
+      "password": "password123",
+      "role": "admin"
+    }
+  </pre>
+</details>
+
+<details>
+  <summary>Medication Payload</summary>
+  <pre>
+    {
+      "name": "Aspirin",
+      "description": "Pain relief medication",
+      "quantity": 100
+    }
+  </pre>
+</details>
+
+<details>
+  <summary>Customer Payload</summary>
+  <pre>
+    {
+      "name": "Jane Doe",
+      "email": "jane@example.com",
+      "phone_number": "1234567890",
+      "gender": "female",
+      "allergies": "Peanuts"
+    }
+  </pre>
+</details>
+
+<p align="center">🔒 <em>This project is open-sourced and licensed under the <a href="https://opensource.org/licenses/MIT" target="_blank">MIT license</a>.</em></p>
