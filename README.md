@@ -1,69 +1,118 @@
-<<<<<<< HEAD
-# pharmacyCRUD
-pharmacyCRUD
-=======
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<h1 align="center">Pharmacy CRUD Application</h1>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<p>This is a CRUD (Create, Read, Update, Delete) application built with Laravel for managing medications and customers in a pharmacy.</p>
+
+<h2>Instructions for Running Locally</h2>
+
+<h3>Prerequisites</h3>
+
+<ul>
+  <li>PHP >= 7.3</li>
+  <li>Composer</li>
+  <li>SQLite or MySQL database</li>
+  <li>Node.js and npm (optional, for front-end assets)</li>
+</ul>
+
+<h3>Setup Instructions</h3>
+
+<ol>
+  <li>Clone the repository:
+    <code>git clone https://github.com/LahiruSandaruwan/pharmacyCRUD.git</code>
+  </li>
+  <li>Navigate to the project directory:
+    <code>cd pharmacyCRUD</code>
+  </li>
+  <li>Install PHP dependencies using Composer:
+    <code>composer install</code>
+  </li>
+  <li>Create a new <code>.env</code> file based on the provided <code>.env.example</code>.</li>
+  <li>Generate an application key:
+    <code>php artisan key:generate</code>
+  </li>
+  <li>Configure the database connection in the <code>.env</code> file:
+    <pre>DB_CONNECTION=sqlite
+DB_DATABASE=/path/to/your/database.sqlite</pre>
+    Replace <code>/path/to/your/database.sqlite</code> with the path to your SQLite database file or configure the connection for MySQL or any other database supported by Laravel.
+  </li>
+  <li>Migrate the database:
+    <code>php artisan migrate</code><br>
+    If you have seeded data, you can run:
+    <code>php artisan db:seed</code>
+  </li>
+</ol>
+
+<h3>Running the Application</h3>
+
+<p>Start the development server:
+  <code>php artisan serve</code>
 </p>
 
-## About Laravel
+<p>You can now access the application at <a href="http://localhost:8000">http://localhost:8000</a>.</p>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<h2>Routes</h2>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<p>This application provides the following routes for API access:</p>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<ul>
+  <li><strong>Authentication:</strong>
+    <ul>
+      <li>POST <code>/login</code>: User authentication</li>
+      <li>POST <code>/logout</code>: User logout</li>
+    </ul>
+  </li>
+  <li><strong>Users:</strong>
+    <ul>
+      <li>GET <code>/users</code>: List all users</li>
+      <li>POST <code>/users</code>: Create a new user</li>
+      <li>GET <code>/users/{user}</code>: Retrieve a specific user</li>
+      <li>PUT <code>/users/{user}</code>: Update a user</li>
+      <li>DELETE <code>/users/{user}</code>: Delete a user</li>
+    </ul>
+    <p><strong>Sample Payload (POST /users):</strong></p>
+    <pre>{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "password": "password123",
+  "role": "user"
+}</pre>
+  </li>
+  <li><strong>Medications:</strong>
+    <ul>
+      <li>GET <code>/medications</code>: List all medications</li>
+      <li>POST <code>/medications</code>: Create a new medication</li>
+      <li>GET <code>/medications/{medication}</code>: Retrieve a specific medication</li>
+      <li>PUT <code>/medications/{medication}</code>: Update a medication</li>
+      <li>DELETE <code>/medications/{medication}</code>: Delete a medication</li>
+    </ul>
+    <p><strong>Sample Payload (POST /medications):</strong></p>
+    <pre>{
+  "name": "Aspirin",
+  "description": "Pain reliever",
+  "quantity": 100
+}</pre>
+  </li>
+  <li><strong>Customers:</strong>
+    <ul>
+      <li>GET <code>/customers</code>: List all customers</li>
+      <li>POST <code>/customers</code>: Create a new customer</li>
+      <li>GET <code>/customers/{customer}</code>: Retrieve a specific customer</li>
+      <li>PUT <code>/customers/{customer}</code>: Update a customer</li>
+      <li>DELETE <code>/customers/{customer}</code>: Delete a customer</li>
+    </ul>
+    <p><strong>Sample Payload (POST /customers):</strong></p>
+    <pre>{
+  "name": "Alice Smith",
+  "email": "alice@example.com",
+  "phone_number": "123-456-7890",
+  "address": "123 Main St, City, Country"
+}</pre>
+  </li>
+</ul>
 
-## Learning Laravel
+<h2>Contributing</h2>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+<p>Contributions are welcome! Please read the <a href="https://laravel.com/docs/contributions">contribution guide</a> for details.</p>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<h2>License</h2>
 
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
->>>>>>> 6caa743 (Initial commit)
+<p>This project is open-source and licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a>.</p>
